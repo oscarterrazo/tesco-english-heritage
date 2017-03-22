@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="small-24 medium-8 columns">
+        <label for="title" class="required">Title *</label>
+    </div>
+    <div class="small-24 medium-16 columns">
+        <select id="title" name="title" required="" data-bind="options: availableTitles, optionsText: 'name', optionsValue: 'id', textInput: title">
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-24 medium-8 columns">
+        <label for="forename" class="required">Forename *</label>
+    </div>
+    <div class="small-24 medium-16 columns">
+        <input id="forename" name="forename" placeholder="First name" type="text" required="" data-bind="textInput: forename"/>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-24 medium-8 columns">
+        <label for="lastname" class="required">Last Name *</label>
+    </div>
+    <div class="small-24 medium-16 columns">
+        <input id="lastname" name="lastname" type="text" required="" data-invalid="" aria-invalid="true" placeholder="Last name" data-bind="textInput: lastName"/>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-24 medium-8 columns">
+        <label for="dateofbirth" class="required">Date of Birth *</label>
+    </div>
+    <div class="small-24 medium-16 columns">
+        <input id="dateofbirth" name="dateofbirth" class="datepicker" data-format="DD/MM/YYYY" data-template="DD MMM YYYY" value="01/01/2001" required="" pattern="date" style="display: none;" aria-invalid="false">
+        <span class="combodate">
+            <select class="day " data-bind="options: availableDateOfBirthDay, optionsText: 'name', optionsValue: 'id', textInput: dateOfBirthDay">
+            </select>
+            &nbsp;
+            <select class="month "data-bind="options: availableDateOfBirthMonth, optionsText: 'name', optionsValue: 'id', textInput: dateOfBirthMonth">
+            </select>
+            &nbsp;
+            <select class="year " data-bind="options: availableDateOfBirthYear, optionsText: 'name', optionsValue: 'id', textInput: dateOfBirthYear">
+            </select>
+        </span>
+    </div>
+</div>

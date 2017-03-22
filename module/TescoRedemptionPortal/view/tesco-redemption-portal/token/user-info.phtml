@@ -1,0 +1,113 @@
+<h3>Membership Details</h3>
+
+<div class="row">
+    <div class="small-24 medium-8 columns">
+        <label for="renew-membership" class="required">Choose your membership pack *</label>
+    </div>
+    <div class="small-24 medium-16 columns inline-radio-abide">
+        <label for="type-annual">
+            <input id="type-annual" type="radio" name="main-type" value="Annual" required="" data-bind="checked: membershipPack">
+            Annual Membership
+        </label>
+        <label for="type-renewal">
+            <input id="type-renewal" type="radio" name="main-type" value="Renewal" required="" data-bind="checked: membershipPack">
+            Renewal
+        </label>
+        <label for="type-gift">
+            <input id="type-gift" type="radio" name="main-type" value="Gift" required="" data-bind="checked: membershipPack">
+            Gift of Membership
+        </label>
+    </div>
+    <div data-bind="fadeVisible: membershipPack() != ''">
+        <hr>
+        <div class="row">
+            <div class="small-24 medium-8 columns">
+                <label for="membershiptype" class="required">Membership type *</label>
+            </div>
+            <div class="small-24 medium-16 columns">
+                <select id="membershiptype" name="membershiptype" required="" data-bind="options: availableMembershipType, optionsText: 'name', optionsValue: 'id', textInput: membershipType">
+                </select>
+            </div>
+        </div>
+    </div>
+    <div data-bind="fadeVisible: membershipPack() == 'Renewal' && membershipType() != 0">
+        <hr>
+        <h3>Personal Details</h3>
+        <div class="row">
+            <div class="small-24 medium-8 columns">
+                <label for="email" class="required">Membership Number *</label>
+            </div>
+            <div class="small-24 medium-16 columns">
+                <input id="membershipNumber" name="membershipNumber" type="Text" required="" data-bind="textInput: membershipNumber">
+            </div>
+        </div>
+    </div>
+    <div data-bind="fadeVisible: membershipPack() != '' && membershipType() != 0, with: mainUser">
+        <hr>
+        <h3>Personal Details</h3>
+        <?php echo $this->partial('partial/details-user-info.phtml'); ?>
+    </div>
+    <div data-bind="fadeVisible: showSecondMember, with: jointUser">
+        <hr>
+        <p>Please fill in the details of the second member of this joint membership.</p>
+        <?php echo $this->partial('partial/details-user-info.phtml'); ?>
+    </div>
+    <div data-bind="fadeVisible: membershipPack() != '' && membershipType() != 0, with: address">
+        <hr>
+        <h3>Address</h3>
+        <?php echo $this->partial('partial/address-user-info.phtml'); ?>
+    </div>
+    <div data-bind="fadeVisible: showChildren">
+        <div data-bind="template: { foreach: children, afterAdd: childAdded, beforeRemove: removingChild }">
+            <hr>
+            <h5><small>Child Details</small></h5>
+            <?php echo $this->partial('partial/details-user-info.phtml'); ?>
+            <div class="row">
+                <div class="small-12 columns text-left">
+                    <p class="SubmissionFeedback">
+                    </p></div>
+                <div class="small-12 columns text-right">
+                    <button name="submit" class="button arrow" type="submit"
+                            data-bind="visible: $parent.children().length > 1, click: $parent.removeChild">Remove<span></span></button>
+                </div>
+            </div>
+        </div>
+        <!-- Add another button -->
+        <div class="row">
+            <div class="small-12 columns text-left">
+                <p class="SubmissionFeedback">
+                </p></div>
+            <div class="small-12 columns text-right">
+                <button name="submit" class="button arrow" type="submit"
+                        data-bind="visible: children().length < 6, click: addChild">Add<span></span></button>
+            </div>
+        </div>
+    </div>
+    <div data-bind="fadeVisible: membershipPack() != '' && membershipType() != 0, with: contact">
+        <hr>
+        <h3>Contact Details</h3>
+        <?php echo $this->partial('partial/contact-user-info.phtml'); ?>
+    </div>
+    <div data-bind="fadeVisible: membershipPack() != '' && membershipType() != 0">
+        <div class="row">
+            <div class="small-12 columns text-left">
+                <p class="SubmissionFeedback">
+                </p></div>
+            <div class="small-12 columns text-right">
+                <button name="submit" class="button arrow" data-bind='click: submit'>Submit<span></span></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php
+
+$this->inlineScript()->appendFile($this->basePath('js/knockout-3.4.0.min.js'));
+$this->inlineScript()->appendFile($this->basePath('js/knockout.validation.min.js'));
+$this->inlineScript()->appendFile($this->basePath('js/knockout-extensions.js'));
+$this->inlineScript()->appendFile($this->basePath('js/user-info/details-user-info.js'));
+$this->inlineScript()->appendFile($this->basePath('js/user-info/address-user-info.js'));
+$this->inlineScript()->appendFile($this->basePath('js/user-info/contact-user-info.js'));
+$this->inlineScript()->appendFile($this->basePath('js/user-info/user-info.js'));
+
+?>

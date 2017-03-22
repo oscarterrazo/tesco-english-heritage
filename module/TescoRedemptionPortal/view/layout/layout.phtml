@@ -1,0 +1,494 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <?php
+    echo $this->headTitle('English Heritage')->setSeparator(' | ')->setAutoEscape(false);
+
+    echo $this->headMeta()
+        ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+        ->appendHttpEquiv('X-UA-Compatible', 'IE=edge');
+
+    // Styles
+    echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => ''))
+        ->prependStylesheet($this->basePath('css/styles.css'));
+        /*->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+        ->prependStylesheet($this->basePath('css/bootstrap.min.css'));*/
+
+    // Scripts
+    echo $this->headScript()
+        ->prependFile($this->basePath('js/jquery.min.js'));
+    ?>
+
+</head>
+<body>
+
+<header class="row-wrapper header" role="banner">
+
+    <style>
+        /* autocomplete adds the ui-autocomplete-loading class to the textbox when it is _busy_ */
+        #searchinput.ui-autocomplete-loading {
+            background-image: url("/static/staticNM/Icons/ui-anim_basic_16x16.gif");
+            background-position: right 30px center;
+            background-repeat: no-repeat;
+        }
+
+        .ui-autocomplete > .ui-menu-item {
+            background: none;
+        }
+
+        .ui-autocomplete > .ui-menu-item.ui-state-focus {
+            background: #dadada;
+        }
+
+
+        .header .anim-wrapper {
+            top: inherit !important;
+        }
+        /* This is needed otherwise in mobile view lots of pages do not load their heading full width. */
+        .header h1 {
+            margin-bottom: 0px !important;
+        }
+    </style>
+
+    <script>
+        // Returns the version of Internet Explorer or a -1
+        // (indicating the use of another browser).
+        function getInternetExplorerVersion_07eb67dfdfd94e77ba69ca6af6d139a4() {
+            var rv = -1; // Return value assumes failure/non-IE browser.
+            //if (navigator.appName == 'Microsoft Internet Explorer' || navigator.appName == 'Netscape') {
+            var ua = navigator.userAgent;
+            var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+
+            if (re.exec(ua) != null) {
+                rv = parseFloat(RegExp.$1);
+            }
+            //}
+            return rv;
+        }
+
+        function setPanelVisibility_07eb67dfdfd94e77ba69ca6af6d139a4() {
+            var ieVersion = getInternetExplorerVersion_07eb67dfdfd94e77ba69ca6af6d139a4();
+            if (ieVersion < 0 || ieVersion >= 9.0) {
+                //$('#07eb67dfdfd94e77ba69ca6af6d139a4').hide();
+                document.getElementById('07eb67dfdfd94e77ba69ca6af6d139a4').style.display = 'none';
+            } else{
+                //$('#07eb67dfdfd94e77ba69ca6af6d139a4').show();
+                document.getElementById('07eb67dfdfd94e77ba69ca6af6d139a4').style.display = 'block';
+            }
+        }
+        window.onload = function ()
+        {
+            setPanelVisibility_07eb67dfdfd94e77ba69ca6af6d139a4();
+        };
+        //$(document).ready(function () {
+        //setPanelVisibility_07eb67dfdfd94e77ba69ca6af6d139a4();
+        //});
+    </script>
+    <style>
+        .banner-heading{
+            background-color:#d61130;
+            color:white;
+            text-transform:uppercase;
+            font-weight:bold;
+        }
+    </style>
+    <div id="07eb67dfdfd94e77ba69ca6af6d139a4" class="row secondary" style="display:none;" onload="setPanelVisibility_07eb67dfdfd94e77ba69ca6af6d139a4()" data-equalizer="">
+        <div class="column small-22 medium-5 banner-heading" data-equalizer-watch="">
+            Your browser is out of date:
+        </div>
+        <div class="column small-22 medium-18 end" data-equalizer-watch="">You are using an old version of Internet Explorer.  It may not display all the features of this and other websites.  To improve security and online experience, please use a different browser or <a href="http://windows.microsoft.com/en-gb/internet-explorer/download-ie">update Internet Explorer</a>.</div>
+        <a href="#" class="close" onclick="document.getElementById('07eb67dfdfd94e77ba69ca6af6d139a4').style.display = 'none'; return false;">×</a><br><br>
+    </div>
+
+    <div class="row">
+        <div class="column small-11 small-offset-1 large-4 large-offset-0">
+            <h1>
+                <a href="/">English Heritage</a>
+            </h1>
+        </div>
+        <ul class="column small-12 mob-only-nav">
+            <li class="mobnav"><a role="button" class="mobile-mega-menu-toggle"></a></li>
+            <li class="sc"><a href="/basket/">Shopping Cart</a></li>
+        </ul>
+        <div class="mobile-nav-wrapper">
+            <nav class="column small-22 small-offset-1 end large-18 large-offset-1">
+                <ul class="nav-top-menu">
+                    <li class="nav-top-menu-item nav-top-menu-more"><a href="http://www.english-heritage.org.uk/visit/">Visit</a><ul class="nav-top-sub-nav row-wrapper"><li class="row nav-top-sub-nav-holder" data-equalizer=""><span class="column large-5" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/visit/places/">Places to Visit</a></li><li><a href="http://www.english-heritage.org.uk/visit/places/stonehenge/">Stonehenge</a></li><li><a href="http://www.english-heritage.org.uk/visit/places/dover-castle/">Dover Castle</a></li><li><a href="http://www.english-heritage.org.uk/visit/places/tintagel-castle/">Tintagel Castle</a></li><li><a href="http://www.english-heritage.org.uk/visit/places/hadrians-wall/">Hadrian's Wall</a></li><li><a href="http://www.english-heritage.org.uk/visit/places/">Find More...</a></li></ul></span><span class="column large-5 large-offset-1" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/visit/whats-on/">What's On</a></li><li><a href="http://www.english-heritage.org.uk/easter/">Easter events</a></li><li><a href="http://www.english-heritage.org.uk/visit/familydaysout/mothers-day/">Mothers' Day</a></li><li><a href="http://www.english-heritage.org.uk/visit/whats-on/family-events/">Family events</a></li><li><a href="http://www.english-heritage.org.uk/visit/whats-on/members-events/">Members' events</a></li><li><a href="http://www.english-heritage.org.uk/visit/whats-on/">Find an event near you</a></li></ul></span><span class="column large-5 large-offset-1" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/visit/familydaysout/">Family Days Out</a></li><li><a href="http://www.english-heritage.org.uk/visit/familydaysout/st-georges-day/">St George's Day</a></li><li><a href="http://www.english-heritage.org.uk/visit/familydaysout/top-10-family-days-out/">Top 10 family days out</a></li><li><a href="http://www.english-heritage.org.uk/visit/familydaysout/days-out-under-20/">Days out for under £20</a></li><li><a href="http://www.english-heritage.org.uk/visit/familydaysout/things-to-do-on-a-rainy-day/">Things to do on a rainy day</a></li><li><a href="http://www.english-heritage.org.uk/visit/familydaysout/family-property-guides/">Family property guides</a></li></ul></span><span class="column large-5 large-offset-1 end" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/visit/inspire-me/">Inspire me</a></li><li><a href="http://www.english-heritage.org.uk/visit/inspire-me/spotlight-on/">Spotlight on places we love</a></li><li><a href="http://www.english-heritage.org.uk/visit/inspire-me/historic-gardens/">Historic Gardens</a></li><li><a href="http://www.english-heritage.org.uk/visit/inspire-me/travel-guides/">Travel Guides</a></li><li><a href="http://www.english-heritage.org.uk/visit/overseas-visitors/">Overseas visitors</a></li><li><a href="http://www.english-heritage.org.uk/visit/inspire-me/dog-friendly-properties/">Dog friendly places</a></li></ul></span></li><li class="row nav-top-sub-nav-holder" data-equalizer=""><span class="column large-5" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/visit/blue-plaques/">Blue Plaques</a></li><li><a href="http://www.english-heritage.org.uk/visit/blue-plaques/about-blue-plaques/">About the scheme</a></li><li><a href="http://www.english-heritage.org.uk/visit/blue-plaques/">Find a blue plaque</a></li><li><a href="http://www.english-heritage.org.uk/visit/blue-plaques/propose-a-plaque/">Propose a blue plaque</a></li><li><a href="/visit/blue-plaques/support-the-scheme/?DonationAppeal=Blue%20Plaques">Support the scheme</a></li></ul></span><span class="column large-5 large-offset-1" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/visit/venue-hire/">Weddings &amp; Venue Hire</a></li><li><a href="http://www.english-heritage.org.uk/visit/venue-hire/weddings/">Wedding venues</a></li><li><a href="http://www.english-heritage.org.uk/visit/venue-hire/corporate-event-hire/">Corporate venues</a></li><li><a href="http://www.english-heritage.org.uk/visit/venue-hire/private-hire/">Private parties</a></li></ul></span><span class="column large-5 large-offset-1 end" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/visit/holiday-cottages/">Holiday Cottages</a></li><li><a href="http://www.english-heritage.org.uk/visit/holiday-cottages/find-a-holiday-cottage/">Find a holiday cottage</a></li><li><a href="http://www.english-heritage.org.uk/visit/holiday-cottages/Holidays-With-History/holiday-cottages-sea/">Cottages by the sea</a></li><li><a href="http://www.english-heritage.org.uk/visit/holiday-cottages/special-offers/">Special offers</a></li></ul></span><span class="column large-5 large-offset-1 end" data-equalizer-watch="" style="border: 0px;"></span></li></ul>  </li><li class="nav-top-menu-item nav-top-menu-more"><a href="http://www.english-heritage.org.uk/about-us/">About Us</a><ul class="nav-top-sub-nav row-wrapper"><li class="row nav-top-sub-nav-holder" data-equalizer=""><span class="column large-5" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/about-us/">About Us</a></li><li><a href="http://www.english-heritage.org.uk/about-us/our-places/">Our places</a></li><li><a href="http://www.english-heritage.org.uk/about-us/our-values/">Our vision &amp; values</a></li><li><a href="http://www.english-heritage.org.uk/about-us/our-people/">Our people</a></li><li><a href="http://www.english-heritage.org.uk/about-us/our-priorities/">Our priorities</a></li><li><a href="http://www.english-heritage.org.uk/about-us/our-history/">Our history</a></li></ul></span><span class="column large-5 large-offset-1" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/about-us/contact-us">Contact Us</a></li><li><a href="http://www.english-heritage.org.uk/about-us/contact-us">General enquiries</a></li><li><a href="http://www.english-heritage.org.uk/about-us/group-visits/">Group visits</a></li><li><a href="http://www.english-heritage.org.uk/about-us/film-and-tv-locations/">Film &amp; TV locations</a></li></ul></span><span class="column large-5 large-offset-1" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/about-us/our-people/jobs/">Jobs</a></li><li><a href="http://www.english-heritage.org.uk/about-us/our-people/jobs/job-search/">Search jobs</a></li><li><a href="http://www.english-heritage.org.uk/about-us/our-people/jobs/working-at-historic-places/">Working at our historic places</a></li><li><a href="http://www.english-heritage.org.uk/about-us/our-people/jobs/our-benefits/">Our benefits</a></li></ul></span><span class="column large-5 large-offset-1 end" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/about-us/search-news/">News</a></li><li><a href="http://blog.english-heritage.org.uk/">Blog</a></li><li><a href="https://www.twitter.com/englishheritage">Twitter</a></li><li><a href="https://www.facebook.com/englishheritage">Facebook</a></li><li><a href="http://www.english-heritage.org.uk/about-us/search-news/press-releases/">Press Office</a></li></ul></span></li><li class="row nav-top-sub-nav-holder" data-equalizer=""><span class="column large-5  " data-equalizer-watch="" style="border: 0px;"></span><span class="column large-5 large-offset-1 " data-equalizer-watch="" style="border: 0px;"></span><span class="column large-5 large-offset-1 " data-equalizer-watch="" style="border: 0px;"></span><span class="column large-5 large-offset-1 end" data-equalizer-watch="" style="border: 0px;"></span></li></ul>  </li><li class="nav-top-menu-item nav-top-menu-more"><a href="http://www.english-heritage.org.uk/support-us/">Support Us</a><ul class="nav-top-sub-nav row-wrapper"><li class="row nav-top-sub-nav-holder" data-equalizer=""><span class="column large-5" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/support-us/">Support Us</a></li><li><a href="http://www.english-heritage.org.uk/support-us/donate-now/">Donate Now</a></li><li><a href="http://www.english-heritage.org.uk/support-us/gifts-in-wills/">Gifts in Wills</a></li><li><a href="http://www.english-heritage.org.uk/support-us/grants/">Grants</a></li><li><a href="http://www.english-heritage.org.uk/support-us/how-your-support-helps/">How your support helps</a></li></ul></span><span class="column large-5 large-offset-1" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/support-us/our-appeals/">Our Appeals</a></li><li><a href="http://www.english-heritage.org.uk/support-us/our-appeals/support-conservation/">Support Conservation</a></li><li><a href="http://www.english-heritage.org.uk/visit/blue-plaques/support-the-scheme/">Blue Plaques</a></li><li><a href="http://www.english-heritage.org.uk/support-us/our-appeals/kenwood-appeal/">Help Kenwood Thrive</a></li></ul></span><span class="column large-5 large-offset-1" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/support-us/volunteer/">Volunteer</a></li><li><a href="http://www.english-heritage.org.uk/support-us/volunteer/">Find a volunteer opportunity</a></li><li><a href="http://www.english-heritage.org.uk/support-us/volunteer/meet-the-volunteers/">Meet our volunteers</a></li><li><a href="http://www.english-heritage.org.uk/support-us/volunteer/about-volunteering/">Why volunteer?</a></li><li><a href="http://www.english-heritage.org.uk/support-us/volunteer/volunteer-focus-magazine/">Volunteer focus magazine</a></li></ul></span><span class="column large-5 large-offset-1 end" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/support-us/corporate-partnerships/">Corporate Partnerships</a></li><li><a href="http://www.english-heritage.org.uk/support-us/corporate-partnerships/partnerships-and-sponsorship/">Partnerships and sponsorship</a></li><li><a href="http://www.english-heritage.org.uk/support-us/corporate-partnerships/licensing/">Licensing</a></li><li><a href="http://www.english-heritage.org.uk/support-us/corporate-partnerships/stone-circle/">The Stone Circle</a></li><li><a href="http://www.english-heritage.org.uk/support-us/corporate-partnerships/corporateactivitydays/">Corporate activity days</a></li></ul></span></li><li class="row nav-top-sub-nav-holder" data-equalizer=""><span class="column large-5  " data-equalizer-watch="" style="border: 0px;"></span><span class="column large-5 large-offset-1 " data-equalizer-watch="" style="border: 0px;"></span><span class="column large-5 large-offset-1 " data-equalizer-watch="" style="border: 0px;"></span><span class="column large-5 large-offset-1 end" data-equalizer-watch="" style="border: 0px;"></span></li></ul>  </li><li class="nav-top-menu-item nav-top-menu-more"><a href="http://www.english-heritage.org.uk/learn/">Learn</a><ul class="nav-top-sub-nav row-wrapper"><li class="row nav-top-sub-nav-holder" data-equalizer=""><span class="column large-5" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/learn/">Learn</a></li><li><a href="http://www.english-heritage.org.uk/learn/1066-and-the-norman-conquest/">1066 and the Norman Conquest</a></li><li><a href="http://www.english-heritage.org.uk/learn/school-visits/">School visits</a></li><li><a href="http://www.english-heritage.org.uk/learn/teaching-resources/">Teaching resources</a></li><li><a href="http://www.english-heritage.org.uk/learn/teaching-resources/teaching-resources-1066/">Schools - 1066</a></li></ul></span><span class="column large-5 large-offset-1" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/learn/histories/">Histories</a></li><li><a href="http://www.english-heritage.org.uk/visit/places/stonehenge/history/">History of Stonehenge</a></li><li><a href="http://www.english-heritage.org.uk/visit/places/hadrians-wall/history/">History of Hadrian's Wall</a></li><li><a href="http://www.english-heritage.org.uk/learn/histories/women-in-history/">Women in history</a></li><li><a href="http://www.english-heritage.org.uk/learn/histories/lgbtq-history/">LGBTQ history</a></li><li><a href="http://www.english-heritage.org.uk/learn/histories/">Find more...</a></li></ul></span><span class="column large-5 large-offset-1" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/learn/conservation/">Conservation</a></li><li><a href="http://www.english-heritage.org.uk/learn/conservation/science/">Caring for our collections</a></li><li><a href="http://www.english-heritage.org.uk/learn/conservation/collections-advice-and-guidance/">Collections advice &amp; guidance</a></li><li><a href="http://www.english-heritage.org.uk/learn/conservation/gardens-and-landscapes/">Gardens &amp; landscapes</a></li></ul></span><span class="column large-5 large-offset-1 end" data-equalizer-watch=""><ul><li><a href="http://www.english-heritage.org.uk/learn/story-of-england/">Story of England</a></li><li><a href="http://www.english-heritage.org.uk/learn/story-of-england/prehistory/">Prehistory</a></li><li><a href="http://www.english-heritage.org.uk/learn/story-of-england/romans/">Romans</a></li><li><a href="http://www.english-heritage.org.uk/learn/story-of-england/tudors/">Tudors</a></li><li><a href="http://www.english-heritage.org.uk/learn/story-of-england/victorian/">Victorians</a></li><li><a href="http://www.english-heritage.org.uk/learn/story-of-england/">Find more...</a></li></ul></span></li><li class="row nav-top-sub-nav-holder" data-equalizer=""><span class="column large-5  " data-equalizer-watch="" style="border: 0px;"></span><span class="column large-5 large-offset-1 " data-equalizer-watch="" style="border: 0px;"></span><span class="column large-5 large-offset-1 " data-equalizer-watch="" style="border: 0px;"></span><span class="column large-5 large-offset-1 end" data-equalizer-watch="" style="border: 0px;"></span></li></ul>  </li><li class="nav-top-menu-item "><a href="http://www.english-heritageshop.org.uk" target="_blank">Shop</a> </li> <li class="nav-top-menu-item "><a href="http://www.english-heritage.org.uk/join/">Join</a> </li>
+                    <li class="nav-top-menu-item nav-search">
+                        <a href="/SiteSearchResults">Search</a>
+                        <input type="text" placeholder="Search the site" autofocus="true" class="ui-autocomplete-input" autocomplete="off">
+                    </li>
+                </ul>
+            </nav>
+            <div class="anim-wrapper large-6">
+                <div class="column btn-members-area login-lo" style="display: block;">
+                    <div class="small-24 login-main" style="border-bottom: none;"><a href="/members-area/">Members' Area</a></div>
+                    <div class="small-12 login-sub ls-l column test-class" style="display: none;"><a href="/Registration/Login/">Login</a></div>
+                    <div class="small-12 login-sub column test-class" style="display: none;"><a href="/Registration/Registration-Step1/">REGISTER</a></div>
+                </div>
+                <div class="column btn-members-area login-li" style="display: none;">
+                    <div class="small-24 login-main" style="border-bottom: none;"><a href="/members-area-logged-in/">Members' Area</a></div>
+                    <div class="small-12 login-sub ls-l column test-class" style="display: none;"><a href="/members-area-logged-in/manage-my-membership/">Account</a></div>
+                    <div class="small-12 login-sub column test-class" style="display: none;"><a href="/Registration/Logout/">Logout</a></div>
+                </div>
+                <ul class="social-nav column">
+                    <li class="fb"><a href="https://www.facebook.com/englishheritage">Facebook</a></li>
+                    <li class="twt"><a href="https://twitter.com/englishheritage">Twitter</a></li>
+                    <li class="yt"><a href="https://www.youtube.com/user/EnglishHeritageFilm">YouTube</a></li>
+                    <li class="sc"><a href="/basket/">Shopping Cart</a></li>
+                </ul>
+            </div></div></div>
+
+    </header>
+
+    <div class="custom-form row-wrapper contact-request-form membership-form bodyContent">
+        <div class="row">
+            <div class="small-22 small-centered columns">
+
+                <div class="main-content">
+                    <?php echo $this->content; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row-wrapper max-width strapline">
+
+        <div class="row">
+
+            <div class="column small-22 small-offset-1 medium-24 medium-offset-0">
+
+
+                <img src="<?php echo $this->basePath('img/StoryofEngland.gif') ?>" alt="'step into englands story">
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <footer class="row-wrapper footer">
+        <nav class="row footer-links" data-equalizer="">
+
+
+
+
+            <div class="footer-small">
+
+                <ul class="tabs vertical small-9 column" data-tab="">
+
+
+
+                    <li class="active"><a href="#panel-1"> Visit</a></li>
+
+
+
+                    <li><a href="#panel-2"> Stay</a></li>
+
+
+
+                    <li><a href="#panel-3"> Support Us</a></li>
+
+
+
+                    <li><a href="#panel-4"> Learn</a></li>
+
+
+
+                    <li><a href="#panel-5"> About Us</a></li>
+
+
+
+                </ul>
+
+                <div class="small-13 small-offset-2 end column">
+
+                    <div class="tabs-content">
+
+
+
+                        <div class="content active" id="panel-1">
+                            <ul>
+                                <li><a href="http://www.english-heritage.org.uk/visit/"> Visit </a></li>
+
+
+                                <li><a href="http://www.english-heritage.org.uk/visit/places/"> Places to visit </a></li>
+
+
+                                <li><a href=" http://www.english-heritage.org.uk/visit/whats-on/"> What's on</a></li>
+
+                                <li><a href=" http://www.english-heritage.org.uk/visit/familydaysout/"> Family days out</a></li>
+
+                                <li><a href=" http://www.english-heritage.org.uk/about-us/group-visits/"> Group visits</a></li>
+
+
+
+                            </ul>
+                        </div>
+
+
+
+                        <div class="content" id="panel-2">
+                            <ul>
+                                <li><a href="http://www.english-heritage.org.uk/visit/holiday-cottages/"> Stay </a></li>
+
+
+                                <li><a href="http://www.english-heritage.org.uk/visit/holiday-cottages/"> Holiday Cottages </a></li>
+
+
+                                <li><a href=" http://www.english-heritage.org.uk/visit/holiday-cottages/Holidays-With-History/holiday-cottages-sea/"> Cottages by the sea</a></li>
+
+                                <li><a href=" http://www.english-heritage.org.uk/visit/holiday-cottages/special-offers/"> Special offers</a></li>
+
+                                <li><a href=" http://www.english-heritage.org.uk/visit/venue-hire/"> Weddings &amp; venue hire</a></li>
+
+
+
+                            </ul>
+                        </div>
+
+
+
+                        <div class="content" id="panel-3">
+                            <ul>
+                                <li><a href="http://www.english-heritage.org.uk/support-us/"> Support Us </a></li>
+
+
+                                <li><a href="http://www.english-heritage.org.uk/join/"> Join </a></li>
+
+
+                                <li><a href=" http://www.english-heritage.org.uk/support-us/donate-now/"> Donate</a></li>
+
+                                <li><a href=" http://www.english-heritage.org.uk/support-us/volunteer/"> Volunteer</a></li>
+
+                                <li><a href=" http://www.english-heritageshop.org.uk/"> Shop</a></li>
+
+
+
+                            </ul>
+                        </div>
+
+
+
+                        <div class="content" id="panel-4">
+                            <ul>
+                                <li><a href="http://www.english-heritage.org.uk/learn/"> Learn </a></li>
+
+
+                                <li><a href="http://www.english-heritage.org.uk/learn/school-visits/"> School visits </a></li>
+
+
+                                <li><a href=" http://www.english-heritage.org.uk/learn/histories/"> Histories</a></li>
+
+                                <li><a href=" http://www.english-heritage.org.uk/learn/story-of-england/"> Story of England</a></li>
+
+
+
+                            </ul>
+                        </div>
+
+
+
+                        <div class="content" id="panel-5">
+                            <ul>
+                                <li><a href="http://www.english-heritage.org.uk/about-us/"> About Us </a></li>
+
+
+                                <li><a href="http://www.english-heritage.org.uk/about-us/contact-us"> Contact us </a></li>
+
+
+                                <li><a href=" http://www.english-heritage.org.uk/about-us/our-people/jobs/"> Jobs</a></li>
+
+                                <li><a href=" http://www.english-heritage.org.uk/about-us/search-news/press-releases/"> Press Office</a></li>
+
+                                <li><a href=" http://www.historicengland.org.uk/?ehfooter"> Heritage Protection &amp; Planning</a></li>
+
+
+
+                            </ul>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="footer-large">
+
+                <div class="large-24 column">
+
+
+
+                    <div class="footer-column">
+
+                        <h2><a href="http://www.english-heritage.org.uk/visit/"> Visit </a></h2>
+
+                        <div class="links-list" data-equalizer-watch="" style="height: 112px;">
+                            <ul>
+
+
+
+                                <li><a href="http://www.english-heritage.org.uk/visit/places/"> Places to visit </a></li>
+
+
+                                <li><a href=" http://www.english-heritage.org.uk/visit/whats-on/"> What's on</a></li>
+
+                                <li><a href=" http://www.english-heritage.org.uk/visit/familydaysout/"> Family days out</a></li>
+
+                                <li><a href=" http://www.english-heritage.org.uk/about-us/group-visits/"> Group visits</a></li>
+
+
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="footer-column">
+
+                        <h2><a href="http://www.english-heritage.org.uk/visit/holiday-cottages/"> Stay </a></h2>
+
+                        <div class="links-list" data-equalizer-watch="" style="height: 112px;">
+                            <ul>
+
+
+
+                                <li><a href="http://www.english-heritage.org.uk/visit/holiday-cottages/"> Holiday Cottages </a></li>
+
+
+                                <li><a href=" http://www.english-heritage.org.uk/visit/holiday-cottages/Holidays-With-History/holiday-cottages-sea/"> Cottages by the sea</a></li>
+
+                                <li><a href=" http://www.english-heritage.org.uk/visit/holiday-cottages/special-offers/"> Special offers</a></li>
+
+                                <li><a href=" http://www.english-heritage.org.uk/visit/venue-hire/"> Weddings &amp; venue hire</a></li>
+
+
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="footer-column">
+
+                        <h2><a href="http://www.english-heritage.org.uk/support-us/"> Support Us </a></h2>
+
+                        <div class="links-list" data-equalizer-watch="" style="height: 112px;">
+                            <ul>
+
+
+
+                                <li><a href="http://www.english-heritage.org.uk/join/"> Join </a></li>
+
+
+                                <li><a href=" http://www.english-heritage.org.uk/support-us/donate-now/"> Donate</a></li>
+
+                                <li><a href=" http://www.english-heritage.org.uk/support-us/volunteer/"> Volunteer</a></li>
+
+                                <li><a href=" http://www.english-heritageshop.org.uk/"> Shop</a></li>
+
+
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="footer-column">
+
+                        <h2><a href="http://www.english-heritage.org.uk/learn/"> Learn </a></h2>
+
+                        <div class="links-list" data-equalizer-watch="" style="height: 112px;">
+                            <ul>
+
+
+
+                                <li><a href="http://www.english-heritage.org.uk/learn/school-visits/"> School visits </a></li>
+
+
+                                <li><a href=" http://www.english-heritage.org.uk/learn/histories/"> Histories</a></li>
+
+                                <li><a href=" http://www.english-heritage.org.uk/learn/story-of-england/"> Story of England</a></li>
+
+
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="footer-column">
+
+                        <h2><a href="http://www.english-heritage.org.uk/about-us/"> About Us </a></h2>
+
+                        <div class="links-list" data-equalizer-watch="" style="height: 112px;">
+                            <ul>
+
+
+
+                                <li><a href="http://www.english-heritage.org.uk/about-us/contact-us"> Contact us </a></li>
+
+
+                                <li><a href=" http://www.english-heritage.org.uk/about-us/our-people/jobs/"> Jobs</a></li>
+
+                                <li><a href=" http://www.english-heritage.org.uk/about-us/search-news/press-releases/"> Press Office</a></li>
+
+                                <li><a href=" http://www.historicengland.org.uk/?ehfooter"> Heritage Protection &amp; Planning</a></li>
+
+
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+
+        </nav>
+
+        <div class="row small-print" role="contentinfo">
+
+            <div class="small-24 column">
+
+                <small class="registered-charity">Registered Charity <b>1140351</b></small>
+                <ul>
+                    <li><small><a href="/about-us/our-people/our-policies#Section2">Cookie policy</a></small></li>
+                    <li><small><a href="/about-us/our-people/our-policies#Section4">Accessibility</a></small></li>
+                    <li><small><a href="/about-us/our-people/our-policies/">Privacy policy</a></small></li>
+                    <li><small><a href="/about-us/our-people/freedom-of-information/">Freedom of Information</a></small></li>
+                    <li><small><a href="/about-us/our-people/terms-conditions/">Terms and conditions</a></small></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+<?php
+
+echo $this->inlineScript();
+
+?>
+</body>
+</html>

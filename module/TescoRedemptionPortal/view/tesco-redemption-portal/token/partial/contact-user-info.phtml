@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="small-24 medium-8 columns">
+        <label for="telephone" class="required">Telephone *</label>
+    </div>
+    <div class="small-24 medium-16 columns">
+        <input id="telephone" name="telephone" type="tel" required="" data-bind="textInput: telephone">
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-24 medium-8 columns">
+        <label for="email" class="required">Email *</label>
+    </div>
+    <div class="small-24 medium-16 columns">
+        <input id="email" name="email" type="email" required="" pattern="email" data-bind="textInput: email">
+    </div>
+</div>
+
+<p>
+    By providing English Heritage with your email address, you are agreeing to hear news from us about our latest events, work in the historic environment, special offers and more straight to your inbox. You can opt out of this at any time, either by clicking on the link in the emails we send or by contacting customers@english-heritage.org.uk.
+</p>
+
+
+<div id="contact-preferences" class="contact-preferences">
+    <fieldset>
+        <legend>Contact Preferences</legend>
+
+        <div class="row">
+            <div class="small-24 medium-8 columns">
+                <p>On occasion, we may contact you by email with more information about English Heritage. Please select one of the following options.</p>
+            </div>
+            <div class="small-24 medium-16 columns inline-radio-abide contact-request-form">
+                <label for="contact-more-info-yes">
+                    <input id="contact-more-info-yes" type="radio" name="contact-more-info" value="true" required="" data-bind="checked: informationHeritage, validationOptions: { insertMessages: false }">
+                    Yes, contact me with more information.
+                </label>
+                <label for="contact-more-info-no">
+                    <input id="contact-more-info-no" type="radio" name="contact-more-info" value="false" required="" data-bind="checked: informationHeritage, validationOptions: { insertMessages: false }">
+                    No, <b>do not</b> contact me with more information.
+                    <small class="error" data-bind="validationMessage: informationHeritage"></small>
+                </label>
+
+            </div>
+        </div>
+        <hr>
+        <div class="row contact-by-telephone">
+            <div class="small-24 medium-8 columns">
+                <p>On occasion, we may contact you by telephone to tell you about our work and other ways you can help us. Please select one of the following options.</p>
+            </div>
+            <div class="small-24 medium-16 columns inline-radio-abide contact-request-form">
+                <label for="contact-telephone-yes">
+                    <input id="contact-telephone-yes" type="radio" name="contact-telephone" value="true" required="" data-bind="checked: contactByPhone, validationOptions: { insertMessages: false }">
+                    Yes, contact me by telephone.
+                </label>
+                <label for="contact-telephone-no">
+                    <input id="contact-telephone-no" type="radio" name="contact-telephone" value="false" required="" data-bind="checked: contactByPhone, validationOptions: { insertMessages: false }">
+                    No, <b>do not</b> contact me by telephone.
+                    <small class="error" data-bind="validationMessage: contactByPhone"></small>
+                </label>
+            </div>
+        </div>
+    </fieldset>
+</div>

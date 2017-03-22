@@ -1,0 +1,38 @@
+<?php
+
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formRow($form->get('csrf'));
+
+?>
+
+    <h3>Tesco Token Code</h3>
+    <div class="row">
+        <div class="small-24 medium-8 columns">
+            <label for="token" class="required">Token code *</label>
+            <small>This will begin with 'EH'</small>
+        </div>
+        <div class="small-24 medium-16 columns">
+            <!--<input id="token" name="token" type="text" required="" pattern="">-->
+            <?php echo $this->formRow($form->get('token')); ?>
+            <?php if ($error != null): ?>
+                <small class="error"><?php echo $error; ?></small>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns text-left">
+            <p class="SubmissionFeedback">
+            </p></div>
+        <div class="small-12 columns text-right">
+            <button name="submit" class="button arrow" type="submit">Submit<span></span></button>
+        </div>
+    </div>
+
+<?php
+
+echo $this->form()->closeTag();
+
+?>
